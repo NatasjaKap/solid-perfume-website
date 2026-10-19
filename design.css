@@ -1,0 +1,139 @@
+:root {
+    --ivory: #F6F1E8;
+    --sand: #D8C7AF;
+    --champagne: #A58C6C;
+    --espresso: #42372E;
+  
+    --bg: var(--ivory);
+    --surface: #EDE5D6;
+    --ink: var(--espresso);
+    --muted: #6E6052;
+    --line: var(--sand);
+    --btn-bg: var(--espresso);
+    --btn-fg: var(--ivory);
+  
+    --serif: "Cormorant Garamond", Georgia, serif;
+    --sans: Inter, system-ui, sans-serif;
+  
+    box-sizing: border-box;
+    padding-top: env(safe-area-inset-top, 0px);
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+  
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #2B231D; --surface: #352C25; --ink: #F6F1E8; --muted: #C9BBA7;
+      --line: #54473B; --btn-bg: #F6F1E8; --btn-fg: #42372E;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #2B231D; --surface: #352C25; --ink: #F6F1E8; --muted: #C9BBA7;
+    --line: #54473B; --btn-bg: #F6F1E8; --btn-fg: #42372E;
+  }
+  
+  html { scroll-padding-top: env(safe-area-inset-top, 0px); scroll-behavior: smooth; }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--ink); font: 400 16px/1.7 var(--sans); }
+  h1, h2, h3 { font-family: var(--serif); font-weight: 400; line-height: 1.02; margin: 0; }
+  a { color: inherit; }
+  img { max-width: 100%; height: auto; display: block; }
+  :focus-visible { outline: 2px solid var(--champagne); outline-offset: 3px; }
+  
+  .wrap { max-width: 1120px; margin: 0 auto; padding: 0 28px; }
+  
+  /* Header */
+  header { border-bottom: 1px solid var(--line); }
+  header .wrap { display: flex; justify-content: space-between; align-items: center; height: 68px; }
+  .logo { font-family: var(--serif); font-size: 26px; text-decoration: none; letter-spacing: .03em; }
+  nav a { margin-left: 32px; text-decoration: none; font-size: 14px; color: var(--muted); }
+  nav a:hover { color: var(--ink); }
+  
+  /* Buttons */
+  .btn {
+    display: inline-block; background: var(--btn-bg); color: var(--btn-fg);
+    padding: 14px 30px; border-radius: 999px; text-decoration: none;
+    border: 0; cursor: pointer; font: 500 15px var(--sans);
+  }
+  .btn:hover { background: var(--champagne); color: #fff; }
+  
+  /* Hero */
+  .hero { display: grid; grid-template-columns: .85fr 1.15fr; gap: 56px; align-items: center; padding: 88px 28px 112px; }
+  .hero h1 { font-size: clamp(52px, 7.5vw, 104px); letter-spacing: -.015em; }
+  .hero p { max-width: 38ch; color: var(--muted); margin: 28px 0 36px; font-size: 18px; }
+  .hero-fig { margin: 0; }
+  .hero-img { width: 100%; border-radius: 20px; }
+  figcaption { font-size: 12px; color: var(--muted); margin-top: 8px; }
+  
+  /* Sections */
+  section { padding: 96px 0; border-top: 1px solid var(--line); }
+  section h2 { font-size: clamp(40px, 5.5vw, 68px); margin-bottom: 16px; }
+  .lead { color: var(--muted); max-width: 50ch; margin: 0 0 56px; }
+  
+  /* Scents */
+  .scents { display: grid; grid-template-columns: repeat(3, 1fr); }
+  .scent { padding: 0 32px; border-left: 1px solid var(--line); }
+  .scent:first-child { padding-left: 0; border-left: 0; }
+  .scent figure { margin: 0 0 28px; width: 170px; }
+  .scent img { width: 170px; filter: drop-shadow(0 14px 18px rgba(40, 25, 10, .25)); }
+  .scent h3 { font-size: 38px; margin-bottom: 8px; }
+  .scent .notes { color: var(--champagne); font-size: 14px; font-weight: 500; margin: 0 0 12px; }
+  .scent p { margin: 0; color: var(--muted); font-size: 15px; }
+  
+  /* About */
+  .about { background: var(--surface); }
+  .facts { display: grid; grid-template-columns: repeat(3, 1fr); gap: 48px; }
+  .facts h3 { font-size: 32px; margin-bottom: 10px; }
+  .facts p { margin: 0; color: var(--muted); }
+  
+  /* Footer */
+  footer { background: var(--espresso); color: #F6F1E8; padding: 80px 0 32px; }
+  footer .top { display: grid; grid-template-columns: 1.2fr 1fr; gap: 56px; padding-bottom: 56px; border-bottom: 1px solid #5C4F43; }
+  footer h2 { font-size: 44px; margin-bottom: 12px; }
+  footer p { color: #D8C7AF; margin: 0 0 20px; max-width: 40ch; }
+  .nl { display: flex; gap: 10px; max-width: 420px; }
+  .nl input {
+    flex: 1; min-width: 0; background: transparent; border: 1px solid #7A6B5C;
+    border-radius: 999px; color: #F6F1E8; padding: 13px 20px; font: inherit;
+  }
+  .nl input::placeholder { color: #B5A58F; }
+  footer .btn { background: #F6F1E8; color: #42372E; }
+  footer .btn:hover { background: var(--champagne); color: #fff; }
+  #msg { font-size: 14px; margin-top: 12px; min-height: 22px; color: #D8C7AF; }
+  .soc a { display: block; color: #D8C7AF; text-decoration: none; padding: 6px 0; border-bottom: 1px solid #5C4F43; max-width: 260px; }
+  .soc a:hover { color: #fff; }
+  .bottom { padding-top: 28px; font-size: 13px; color: #B5A58F; }
+  
+  /* Grid children may shrink below their content width */
+  .hero > *, footer .top > *, .scent, .facts > * { min-width: 0; }
+  
+  /* Mobile */
+  @media (max-width: 820px) {
+    .hero, footer .top { grid-template-columns: 1fr; }
+    .hero { padding: 56px 28px 72px; gap: 40px; }
+    .scents, .facts { grid-template-columns: 1fr; }
+    .scent { display: grid; grid-template-columns: 120px 1fr; column-gap: 24px; padding: 32px 0; border-left: 0; border-top: 1px solid var(--line); }
+    .scent:first-child { padding-top: 0; border-top: 0; }
+    .scent figure { grid-row: 1 / 4; width: 120px; margin: 0; }
+    .scent img { width: 120px; }
+    .facts { gap: 36px; }
+    nav a { margin-left: 20px; }
+  }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+  
+  @media (max-width: 820px) {
+    .wrap { padding-left: 20px; padding-right: 20px; }
+    .hero { padding-left: 20px; padding-right: 20px; }
+    header .wrap { height: auto; min-height: 64px; flex-wrap: wrap; gap: 4px 16px; padding-top: 12px; padding-bottom: 12px; }
+    .logo { font-size: 22px; white-space: nowrap; }
+    nav { display: flex; gap: 18px; }
+    nav a { margin-left: 0; font-size: 13px; white-space: nowrap; }
+    footer { padding-top: 56px; }
+    footer h2 { font-size: 36px; }
+  }
+  @media (max-width: 480px) {
+    .nl { flex-direction: column; max-width: none; }
+    .nl .btn { width: 100%; text-align: center; }
+    .scent { grid-template-columns: 96px 1fr; column-gap: 18px; }
+    .scent figure, .scent img { width: 96px; }
+    .scent h3 { font-size: 32px; }
+  }
